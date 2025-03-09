@@ -1,0 +1,11 @@
+.wrapper {
+  width: calc(100vw / 4);
+  overflow: hidden; /* Забезпечує обрізання зображення */
+  aspect-ratio: 16 / 9;
+}
+
+.item {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
