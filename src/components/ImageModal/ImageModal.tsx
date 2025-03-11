@@ -1,6 +1,8 @@
 import Modal from "react-modal";
 import s from "./ImageModal.module.css";
-const customStyles = {
+import ReactModal from "react-modal";
+Modal.setAppElement("#root");
+const customStyles: ReactModal.Styles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.6)",
     display: "flex",
@@ -20,8 +22,19 @@ const customStyles = {
     position: "relative",
   },
 };
-Modal.setAppElement("#root");
-const ImageModal = ({ modalOpen, closeModal, src, alt }) => {
+
+interface ImageModalInterface {
+  modalOpen: boolean;
+  closeModal: () => void;
+  src: string;
+  alt: string;
+}
+const ImageModal: React.FC<ImageModalInterface> = ({
+  modalOpen,
+  closeModal,
+  src,
+  alt,
+}) => {
   return (
     <Modal isOpen={modalOpen} onRequestClose={closeModal} style={customStyles}>
       <img src={src} alt={alt} className={s.item} />

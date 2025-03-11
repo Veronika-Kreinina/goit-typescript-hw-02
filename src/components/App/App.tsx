@@ -15,7 +15,6 @@ function App() {
   const [page, setPage] = useState<number>(1);
   const [isLoad, setIsLoad] = useState<boolean>(false);
   const [isError, setIsError] = useState<string>("");
-
   // check type
   const [images, setImages] = useState<ImagesState[]>([]);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -48,7 +47,7 @@ function App() {
     fetchImages();
   }, [query, page]);
 
-  const handleSubmit = (value: string) => {
+  const handleSubmit = (value: string): void => {
     setQuery(value);
     setImages([]);
     setPage(1);
@@ -56,16 +55,16 @@ function App() {
     setIsEmpty(false);
     setIsVisible(false);
   };
-  const handleLoadMore = () => {
+  const handleLoadMore = (): void => {
     setPage((prevPage) => prevPage + 1);
   };
-  const openModal = (urls: string, alt_description: string) => {
+  const openModal = (urls: string, alt_description: string): void => {
     setModalOpen(true);
     setModalSrc(urls);
     setModalAlt(alt_description);
   };
 
-  const closeModal = () => {
+  const closeModal = (): void => {
     setModalOpen(false);
     setModalSrc("");
     setModalAlt("");
